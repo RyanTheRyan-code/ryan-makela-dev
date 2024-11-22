@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ryan Makela - Personal Website</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Ryan Makela</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <a href="life-story.html">Life Story</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h1>Ryan Makela</h1>
+                    <div class="typing-container">
+                        <p class="typing-text"></p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/RyanTheRyan-code" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/ryan-makela/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://leetcode.com/u/user5952nE/" target="_blank" title="LeetCode"><i class="fas fa-code"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="about">
+                <div class="about-content">
+                    <div class="about-card">
+                        <h3>About Me</h3>
+                        <div class="about-text">
+                            <p>I'm a Computer Science student at California State University, Chico, with a passion for solving complex problems through innovative technology solutions. As the President of ACM's Chico Chapter, I lead a community of 300+ aspiring developers and regularly organize programming events.</p>
+                            <p>My experience spans from competitive programming (ICPC Division 1 & 2) to developing educational tools and managing large-scale student organizations. I believe in writing clean, efficient code while fostering a collaborative learning environment.</p>
+                        </div>
+                    </div>
+                    <div class="skills">
+                        <h3>Technical Expertise</h3>
+                        <div class="skill-categories">
+                            <div class="skill-category">
+                                <h4>Core Languages</h4>
+                                <ul>
+                                    <li>C++ (Data Structures, Assembly Programming)</li>
+                                    <li>Java (Object-Oriented Development)</li>
+                                    <li>Python (API Integration, Automation)</li>
+                                    <li>Golang & Dart (Modern Development)</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Development Tools</h4>
+                                <ul>
+                                    <li>VSCode & Visual Studio (Primary IDEs)</li>
+                                    <li>Git & GitHub (Version Control)</li>
+                                    <li>WSL (Linux Development)</li>
+                                    <li>Eclipse & Notepad++ (Code Editing)</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h4>Leadership & Achievements</h4>
+                                <ul>
+                                    <li>ACM Chapter President (300+ Members)</li>
+                                    <li>Upsilon Pi Epsilon Honor Society Member</li>
+                                    <li>ACM Coding Competition Winner</li>
+                                    <li>ICPC Division 1 & 2 Competitor</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="projects">
+                <h2>Featured Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>LogsDay</h3>
+                        <p class="project-timeline">May 2024 - Present</p>
+                        <div class="project-description">
+                            <p>A social platform revolutionizing project accountability through 8-day update cycles:</p>
+                            <ul>
+                                <li>Node.js & PostgreSQL backend hosted on DigitalOcean, featuring secure Cloud Firestore integration</li>
+                                <li>Interactive calendar system with geotagging for discovering local collaborators</li>
+                                <li>Innovative "Log Streak" system driving consistent project updates and community engagement</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>CyberSeagull I & II</h3>
+                        <p class="project-timeline">April 2023, April 2024</p>
+                        <div class="project-description">
+                            <p>Educational assembly programming tools developed during 24-hour hackathons:</p>
+                            <ul>
+                                <li>Custom assembly language compiler implementation</li>
+                                <li>Interactive learning environment for low-level programming</li>
+                                <li>Built in C++ with custom library integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Conman's Game of Life</h3>
+                        <div class="project-description">
+                            <p>A modular cellular automaton simulator with game mechanics:</p>
+                            <ul>
+                                <li>Interactive construction and random generation of cellular automatons</li>
+                                <li>Advanced statistics tracking for evolution patterns</li>
+                                <li>Unique game mode with dynamic rule generation and ranking system</li>
+                                <li>Built with HTML, JavaScript, and CSS for seamless web interaction</li>
+                            </ul>
+                            <a href="https://ivangav.github.io/ConmansGameOfLife/" class="project-link" target="_blank">Try it Live →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="contact">
+                <h2>Get In Touch</h2>
+                <form id="contact-form">
+                    <input type="text" name="user_name" placeholder="Your Name" required>
+                    <input type="email" name="user_email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                <div id="form-status" class="form-status"></div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                    <a href="life-story.html">Life Story</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/RyanTheRyan-code" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ryan-makela/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://leetcode.com/u/user5952nE/" target="_blank" title="LeetCode"><i class="fas fa-code"></i></a>
+                </div>
+                <p class="footer-text">Building innovative solutions with modern technology</p>
+                <p class="footer-copyright">&copy; 2023 Ryan Makela. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
