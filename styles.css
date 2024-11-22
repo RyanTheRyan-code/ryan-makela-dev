@@ -719,23 +719,79 @@ footer {
 }
 
 .typing-text {
-    font-size: 1.8rem;
-    color: var(--text-color);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    border-right: 3px solid var(--soft-teal);
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    min-height: 3rem;
+    color: var(--soft-teal);
 }
 
-@keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+@media (max-width: 768px) {
+    .typing-text {
+        font-size: 1.2rem;
+        max-width: 100%;
+        padding: 0 1rem;
+        word-wrap: break-word;
+        line-height: 1.4;
+    }
+    
+    .hero-content {
+        padding: 0 1rem;
+        text-align: center;
+    }
 }
 
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: var(--soft-teal) }
+/* Mobile Menu Styles */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #231f20;
+    padding: 2rem;
+    transition: 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+.mobile-menu ul li {
+    margin: 1.5rem 0;
+}
+
+.mobile-menu ul li a {
+    color: #7ebdc2;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu ul li a:hover {
+    color: #bb4430;
+}
+
+.close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #7ebdc2;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.close-menu:hover {
+    color: #bb4430;
 }
 
 @media (max-width: 768px) {

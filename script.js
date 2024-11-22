@@ -94,53 +94,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Typing effect for taglines
-    const taglines = [
-        "Full-Stack Developer & Systems Engineer",
-        "Innovator in Web Development & Cloud Solutions",
-        "Building Scalable Solutions with Modern Tech"
+    const phrases = [
+        "Full-Stack Developer",
+        "Systems Engineer",
+        "Problem Solver",
+        "Tech Innovator"
     ];
 
-    function setupTypingEffect() {
-        const typingText = document.querySelector('.typing-text');
-        let currentTagline = 0;
+    function typeText() {
+        const element = document.querySelector('.typing-text');
+        if (!element) return;
 
-        function typeTagline() {
-            let text = taglines[currentTagline];
-            let charIndex = 0;
-            typingText.textContent = '';
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
 
-            function type() {
-                if (charIndex < text.length) {
-                    typingText.textContent += text.charAt(charIndex);
-                    charIndex++;
-                    setTimeout(type, 50); // Typing speed
-                } else {
-                    setTimeout(eraseTagline, 2000); // Wait before erasing
-                }
-            }
-
-            type();
-        }
-
-        function eraseTagline() {
-            let text = typingText.textContent;
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
             
-            function erase() {
-                if (text.length > 0) {
-                    text = text.slice(0, -1);
-                    typingText.textContent = text;
-                    setTimeout(erase, 30); // Erasing speed
-                } else {
-                    currentTagline = (currentTagline + 1) % taglines.length;
-                    setTimeout(typeTagline, 500); // Wait before typing next
-                }
+            if (isDeleting) {
+                element.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                element.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
             }
 
-            erase();
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isDeleting = true;
+                typingSpeed = 1500; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typingSpeed = 500; // Pause before next phrase
+            }
+
+            setTimeout(type, typingSpeed);
         }
 
-        typeTagline(); // Start the effect
+        type();
     }
 
-    setupTypingEffect(); // Initialize typing effect when the page loads
+    typeText();
 });
