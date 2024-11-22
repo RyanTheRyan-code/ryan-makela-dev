@@ -146,8 +146,21 @@ document.addEventListener('DOMContentLoaded', () => {
         
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Close mobile menu if open (for all links)
+                const mobileMenu = document.querySelector('.mobile-menu');
+                if (mobileMenu && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                }
+                
+                // If it's a different page (doesn't start with #), let it navigate normally
+                if (!href.startsWith('#')) {
+                    return;
+                }
+                
                 e.preventDefault();
-                const section = this.getAttribute('href').split('#')[1];
+                const section = href.split('#')[1];
                 const targetSection = document.getElementById(section);
                 
                 if (targetSection) {
@@ -156,12 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Update URL without the hash
                     const baseUrl = window.location.href.split('#')[0];
                     window.history.pushState({}, '', baseUrl);
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.querySelector('.mobile-menu');
-                    if (mobileMenu && mobileMenu.classList.contains('active')) {
-                        mobileMenu.classList.remove('active');
-                    }
                 }
             });
         });
