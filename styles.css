@@ -20,6 +20,11 @@
     --text-muted: #a0a0a0;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px; /* Adjust based on your navbar height */
+}
+
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;

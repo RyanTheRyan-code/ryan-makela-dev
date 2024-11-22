@@ -139,4 +139,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     typeText();
+
+    // Clean URL Navigation
+    function setupNavigation() {
+        const navLinks = document.querySelectorAll('nav a, .mobile-menu a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const section = this.getAttribute('href').split('#')[1];
+                const targetSection = document.getElementById(section);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Update URL without the hash
+                    const baseUrl = window.location.href.split('#')[0];
+                    window.history.pushState({}, '', baseUrl);
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.querySelector('.mobile-menu');
+                    if (mobileMenu && mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+    }
+
+    setupNavigation();
 });
