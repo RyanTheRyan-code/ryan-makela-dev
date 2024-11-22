@@ -62,6 +62,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Mobile Menu Toggle
+    function setupMobileMenu() {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const closeMenuBtn = document.querySelector('.close-menu');
+
+        if (mobileMenuBtn && mobileMenu && closeMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+            });
+
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    setupMobileMenu();
+
     // Initialize EmailJS
     (function() {
         // Replace with your EmailJS public key
